@@ -22,7 +22,8 @@
 local ll = require 'lualvm.llvm'
 local bind = require 'lualvm.bind'
 
-local Module = ll.LLVMModule
+--local Module = ll.LLVMOpaqueModule
+local Module = bind.opaque("Module") --ll.LLVMOpaqueModule
 
 bind (Module, 'ModuleCreateWithName', 'Create')
 bind (Module, 'CloneModule', 'Clone')

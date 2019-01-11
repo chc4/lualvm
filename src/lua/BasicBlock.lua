@@ -22,7 +22,8 @@
 local ll = require 'lualvm.llvm'
 local bind = require 'lualvm.bind'
 
-local BasicBlock = ll.LLVMBasicBlock
+--local BasicBlock = ll.LLVMOpaqueBasicBlock
+local BasicBlock = bind.opaque("BasicBlock") --ll.LLVMOpaqueBasicBlock
 bind (BasicBlock, 'BasicBlockAsValue', 'AsValue')
 bind (BasicBlock, 'GetBasicBlockParent', 'GetParent')
 bind (BasicBlock, 'GetBasicBlockTerminator', 'GetTerminator')

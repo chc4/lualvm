@@ -30,7 +30,7 @@ ignore :
 ---
 
 # IRReader
-LLVMParseIRInContext : ['in', 'in', 'out', 'out free = LLVMDisposeMessage']
+LLVMParseIRInContext : ['in', 'in', 'out', 'out free[LLVMDisposeMessage]']
 
 # BitReader
 LLVMParseBitcode2 : ['in', 'out']

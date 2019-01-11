@@ -22,7 +22,8 @@
 local ll = require 'lualvm.llvm'
 local bind = require 'lualvm.bind'
 
-local ExecutionEngine = ll.LLVMExecutionEngine
+--local ExecutionEngine = ll.LLVMOpaqueExecutionEngine
+local ExecutionEngine = bind.opaque("ExecutionEngine") --ll.LLVMOpaqueExecutionEngine
 bind (ExecutionEngine, 'DisposeExecutionEngine', 'Dispose')
 bind (ExecutionEngine, 'RunStaticConstructors')
 bind (ExecutionEngine, 'RunStaticDestructors')

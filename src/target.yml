@@ -20,11 +20,11 @@ headers :
 
 ---
 
-LLVMCopyStringRepOfTargetData : ['in', 'out free = LLVMDisposeMessage']
-LLVMGetTargetFromTriple : ['in', 'out', 'out free = LLVMDisposeMessage']
-LLVMGetTargetMachineTriple : ['in', 'out free = LLVMDisposeMessage']
-LLVMGetTargetMachineCPU : ['in', 'out free = LLVMDisposeMessage']
-LLVMGetTargetMachineFeatureString : ['in', 'out free = LLVMDisposeMessage']
-LLVMTargetMachineEmitToFile : ['in', 'in', 'in', 'in', 'out free = LLVMDisposeMessage']
-LLVMTargetMachineEmitToMemoryBuffer : ['in', 'in', 'in', 'out free = LLVMDisposeMessage', 'out']
-LLVMGetDefaultTargetTriple : ['out free = LLVMDisposeMessage']
+LLVMCopyStringRepOfTargetData : ['in', 'out free[LLVMDisposeMessage]']
+LLVMGetTargetFromTriple : ['in', 'out', 'out free[LLVMDisposeMessage]']
+LLVMGetTargetMachineTriple : ['in', 'out free[LLVMDisposeMessage]']
+LLVMGetTargetMachineCPU : ['in', 'out free[LLVMDisposeMessage]']
+LLVMGetTargetMachineFeatureString : ['in', 'out free[LLVMDisposeMessage]']
+LLVMTargetMachineEmitToFile : ['in', 'in', 'in', 'in', 'out free[LLVMDisposeMessage]']
+LLVMTargetMachineEmitToMemoryBuffer : ['in', 'in', 'in', 'out free[LLVMDisposeMessage]', 'out']
+LLVMGetDefaultTargetTriple : ['out free[LLVMDisposeMessage]']

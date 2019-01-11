@@ -22,7 +22,8 @@
 local ll = require 'lualvm.llvm'
 local bind = require 'lualvm.bind'
 
-local Target = ll.LLVMTarget
+--local Target = ll.LLVMOpaqueTargetData
+local Target = bind.opaque("TargetData") --ll.LLVMOpaqueTargetData
 bind.iterator (Target, 'Targets', 'Target')
 bind (Target, 'GetTargetFromName', 'FromName')
 --- Finds target corresponding to the given triple.
@@ -44,7 +45,8 @@ bind (Target, 'TargetHasAsmBackend', 'HasAsmBackend')
 bind (Target, 'GetDefaultTargetTriple', 'GetDefaultTriple')
 
 
-local TargetMachine = ll.LLVMTargetMachine
+--local TargetMachine = ll.LLVMOpaqueTargetMachine
+local TargetMachine = bind.opaque("TargetMachine") --ll.LLVMOpaqueTargetMachine
 bind (TargetMachine, 'CreateTargetMachine', 'Create')
 bind (TargetMachine, 'DisposeTargetMachine', 'Dispose')
 bind (TargetMachine, 'GetTargetMachineTarget', 'GetTarget')

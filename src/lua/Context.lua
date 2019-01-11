@@ -22,7 +22,8 @@
 local ll = require 'lualvm.llvm'
 local bind = require 'lualvm.bind'
 
-local Context = ll.LLVMContext
+--local Context = ll.LLVMOpaqueContext
+local Context = bind.opaque("Context") --ll.LLVMOpaqueContext
 bind (Context, 'ContextDispose', 'Dispose')
 bind (Context, 'GetMDKindIDInContext', 'GetMDKindID')
 bind (Context, 'ModuleCreateWithNameInContext', 'Module')

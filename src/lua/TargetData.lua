@@ -22,7 +22,8 @@
 local ll = require 'lualvm.llvm'
 local bind = require 'lualvm.bind'
 
-local TargetData = ll.LLVMTargetData
+--local TargetData = ll.LLVMOpaqueTargetData
+local TargetData = bind.opaque("TargetData") --ll.LLVMOpaqueTargetData
 
 --- Creates a LLVMTargetData from target layout string
 function TargetData.Create (target_layout)

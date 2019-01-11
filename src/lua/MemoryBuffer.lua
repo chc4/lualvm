@@ -22,7 +22,8 @@
 local ll = require 'lualvm.llvm'
 local bind = require 'lualvm.bind'
 
-local MemoryBuffer = ll.LLVMMemoryBuffer
+--local MemoryBuffer = ll.LLVMOpaqueMemoryBuffer
+local MemoryBuffer = bind.opaque("MemoryBuffer") --ll.LLVMOpaqueMemoryBuffer
 bind (MemoryBuffer, 'GetBufferStart', 'GetStart')
 bind (MemoryBuffer, 'GetBufferSize', '__len')
 bind (MemoryBuffer, 'DisposeMemoryBuffer', 'Dispose')

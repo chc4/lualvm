@@ -25,7 +25,7 @@ local bind = {}
 
 --- Find `LLVMfunc_name`, raising warning if not found
 local function find_on_llvm (func_name)
-	local f = ll[func_name]
+	local f = ll["LLVM"..func_name]
 	if f == nil then
 		io.stderr:write (string.format (
 				"[lualvm.bind] WARNING: Couldn't find %q function in LLVM bindings\n",
@@ -34,6 +34,13 @@ local function find_on_llvm (func_name)
 	return f
 end
 	
+
+function bind.opaque (class)
+    local c = find_on_llvm("Opaque"..class)
+    assert(c)
+    ll[class] = c
+    return c
+end
 
 --- Copy function `func_name` to `meta`, optionaly named `new_name`.
 --

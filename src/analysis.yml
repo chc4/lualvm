@@ -19,4 +19,4 @@ headers :
 
 ---
 
-LLVMVerifyModule : ['in', 'in', 'out free = LLVMDisposeMessage']
+LLVMVerifyModule : ['in', 'in', 'out free[LLVMDisposeMessage]']

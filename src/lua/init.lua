@@ -36,6 +36,14 @@ require 'lualvm.TargetMachine'
 require 'lualvm.PassManager'
 require 'lualvm.ObjectFile'
 
+-- expose names without the "LLVM" prefix
+for i,v in next,llvm do
+    local name = i:match("^LLVM(.+)")
+    if name then
+        llvm[name] = v
+    end
+end
+
 --- Lualvm version string
 llvm.VERSION = '1.0.0'
 

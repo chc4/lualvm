@@ -22,7 +22,8 @@
 local ll = require 'lualvm.llvm'
 local bind = require 'lualvm.bind'
 
-local Type = ll.LLVMType
+--local Type = ll.LLVMOpaqueType
+local Type = bind.opaque("Type") --ll.LLVMOpaqueType
 bind (Type, 'GetTypeKind', 'GetKind')
 bind (Type, 'TypeIsSized', 'IsSized')
 bind (Type, 'GetTypeContext', 'GetContext')

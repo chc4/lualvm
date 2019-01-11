@@ -41,7 +41,7 @@ LLVMGetMDKindID : ['array[arg2] in', 'size in']
 LLVMGetMDKindIDInContext : ['in', 'array[arg3] in', 'size']
 
 # Modules
-LLVMPrintModuleToFile : ['in', 'in', 'out free = LLVMDisposeMessage']
+LLVMPrintModuleToFile : ['in', 'in', 'out free[LLVMDisposeMessage]']
 LLVMGetNamedMetadataOperands: ['in', 'in', 'array[LLVMGetNamedMetadataNumOperands(arg1, arg2)] out']
 
 # Types
@@ -51,10 +51,10 @@ LLVMStructTypeInContext : ['in', 'array[arg3] in', 'size', 'in']
 LLVMStructType : ['array[arg2] in', 'size', 'in']
 LLVMStructSetBody : ['in', 'array[arg3] in', 'size', 'in']
 LLVMGetStructElementTypes : ['in', 'array[LLVMCountStructElementTypes(arg1)] out']
-LLVMPrintTypeToString : ['in', 'out free = LLVMDisposeMessage']
+LLVMPrintTypeToString : ['in', 'out free[LLVMDisposeMessage]']
 
 # Values: General
-LLVMPrintValueToString : ['in', 'out free = LLVMDisposeMessage']
+LLVMPrintValueToString : ['in', 'out free[LLVMDisposeMessage]']
 # Values: Constants
 LLVMConstIntOfArbitraryPrecision : ['in', 'size', 'array[arg2] in']
 LLVMConstIntOfStringAndSize : ['in', 'array[arg3] in', 'size', 'in']

@@ -22,7 +22,8 @@
 local ll = require 'lualvm.llvm'
 local bind = require 'lualvm.bind'
 
-local ObjectFile = ll.LLVMObjectFile
+--local ObjectFile = ll.LLVMOpaqueObjectFile
+local ObjectFile = bind.opaque("ObjectFile") --ll.LLVMOpaqueObjectFile
 bind (ObjectFile, 'CreateObjectFile', 'Create')
 bind (ObjectFile, 'DisposeObjectFile', 'Dispose')
 bind (ObjectFile, 'GetSections')
@@ -32,7 +33,8 @@ bind (ObjectFile, 'IsSymbolIteratorAtEnd')
 bind.object_file_iterator (ObjectFile, 'Sections', 'Section')
 bind.object_file_iterator (ObjectFile, 'Symbols', 'Symbol')
 
-local SectionIterator = ll.LLVMSectionIterator
+--local SectionIterator = ll.LLVMOpaqueSectionIterator
+local SectionIterator = bind.opaque("SectionIterator") --ll.LLVMOpaqueSectionIterator
 bind (SectionIterator, 'DisposeSectionIterator', 'Dispose')
 bind (SectionIterator, 'MoveToNextSection')
 bind (SectionIterator, 'MoveToContainingSection')
@@ -45,14 +47,16 @@ bind (SectionIterator, 'GetRelocations')
 bind (SectionIterator, 'IsRelocationIteratorAtEnd')
 bind.object_file_iterator (SectionIterator, 'Relocations', 'Relocation')
 
-local SymbolIterator = ll.LLVMSymbolIterator
+--local SymbolIterator = ll.LLVMOpaqueSymbolIterator
+local SymbolIterator = bind.opaque("SymbolIterator") --ll.LLVMOpaqueSymbolIterator
 bind (SymbolIterator, 'DisposeSymbolIterator', 'Dispose')
 bind (SymbolIterator, 'MoveToNextSymbol')
 bind (SymbolIterator, 'GetSymbolName', 'GetName')
 bind (SymbolIterator, 'GetSymbolSize', 'GetSize')
 bind (SymbolIterator, 'GetSymbolAddress', 'GetAddress')
 
-local RelocationIterator = ll.LLVMRelocationIterator
+--local RelocationIterator = ll.LLVMOpaqueRelocationIterator
+local RelocationIterator = bind.opaque("RelocationIterator") --ll.LLVMOpaqueRelocationIterator
 bind (RelocationIterator, 'DisposeRelocationIterator', 'Dispose')
 bind (RelocationIterator, 'MoveToNextRelocation')
 bind (RelocationIterator, 'GetRelocationOffset', 'GetOffset')

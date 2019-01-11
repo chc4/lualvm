@@ -22,7 +22,8 @@
 local ll = require 'lualvm.llvm'
 local bind = require 'lualvm.bind'
 
-local PassManager = ll.LLVMPassManager
+--local PassManager = ll.LLVMOpaquePassManager
+local PassManager = bind.opaque("PassManager") --ll.LLVMOpaquePassManager
 bind (PassManager, 'CreatePassManager', 'Create')
 bind (PassManager, 'CreateFunctionPassManagerForModule', 'CreateForModule')
 bind (PassManager, 'RunPassManager', 'Run')

@@ -22,7 +22,8 @@
 local ll = require 'lualvm.llvm'
 local bind = require 'lualvm.bind'
 
-local Value = ll.LLVMValue
+--local Value = ll.LLVMOpaqueValue
+local Value = bind.opaque("Value") --ll.LLVMOpaqueValue
 bind (Value, 'TypeOf')
 bind (Value, 'GetValueName', 'GetName')
 bind (Value, 'SetValueName', 'SetName')
@@ -35,7 +36,8 @@ bind (Value, 'IsAMDNode')
 bind (Value, 'IsAMDString')
 bind (Value, 'GetFirstUse')
 
-local Use = ll.LLVMUse
+--local Use = ll.LLVMOpaqueUse
+local Use = bind.opaque("Use") --ll.LLVMOpaqueUse
 bind (Use, 'GetNextUse')
 bind (Use, 'GetUser')
 bind (Use, 'GetUsedValue')

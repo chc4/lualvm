@@ -22,7 +22,8 @@
 local ll = require 'lualvm.llvm'
 local bind = require 'lualvm.bind'
 
-local Builder = ll.LLVMBuilder
+--local Builder = ll.LLVMOpaqueBuilder
+local Builder = bind.opaque("Builder") -- ll.LLVMOpaqueBuilder
 bind (Builder, 'CreateBuilder', 'Create')
 bind (Builder, 'PositionBuilder', 'Position')
 bind (Builder, 'PositionBuilderBefore', 'PositionBefore')
