@@ -14,7 +14,7 @@ file (COPY ${luaSrc} DESTINATION ${CMAKE_PROJECT_NAME})
 
 ##  Install  ##
 # set (LUA_VER "${LUA_VERSION_MAJOR}.${LUA_VERSION_MINOR}")
-set (LUA_VER "5.1")
+set (LUA_VER "5.3")
 
 # Variables expected from Luarocks, set if not present
 # TODO: use the right path on Windows (using Luarocks is preferred anyway, so no much worries here)
