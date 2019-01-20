@@ -37,11 +37,15 @@ require 'lualvm.PassManager'
 require 'lualvm.ObjectFile'
 
 -- expose names without the "LLVM" prefix
+local naked = {}
 for i,v in next,llvm do
     local name = i:match("^LLVM(.+)")
     if name then
-        llvm[name] = v
+        naked[name] = v
     end
+end
+for i,v in next,naked do
+    llvm[i] = v
 end
 
 --- Lualvm version string
